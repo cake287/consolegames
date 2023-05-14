@@ -1,0 +1,21 @@
+global delayingLock = false
+global skipLockDelay = false // when lockDelayTimer has ticked but the piece has been rotated/translated so that it's no longer obstructed, lockDelay is skipped when it reaches the ground, as to prevent 'infinity' (https://tetris.fandom.com/wiki/Infinity)
+
+when the active piece is obstructed by the bottom of the board or a locked piece:
+	if skipLockDelay == false:
+		delayingLock = true
+		start lockDelayTimer
+	else:
+		for each unlocked piece:
+			locked = true
+		delayingLock = false
+		skipLockDelay = false
+	
+	
+lockDelayTimer tick:
+	if the active piece is obstructed:
+		for each unlocked piece:
+			locked = true
+		delayingLock = false
+	else:
+		skipLockDelay = true
