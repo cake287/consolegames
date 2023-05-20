@@ -13,6 +13,7 @@ namespace consolegames
         int boardHeight = 20;
         float mineFreq = 0.1f; // proportion of tiles which have mines behind them
 
+        // git test. ignore this commment
         public void run()
         {
             Random r = new Random();
@@ -20,7 +21,6 @@ namespace consolegames
             {
                 for (int y = 0; y < boardHeight; y++)
                 {
-
                 }  
             }
         }
